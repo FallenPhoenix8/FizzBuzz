@@ -17,7 +17,7 @@ struct MainView: View {
             }
 
             Tab("About", systemImage: "bubble") {
-                Text("AboutView")
+                AboutView()
             }
         }
     }
