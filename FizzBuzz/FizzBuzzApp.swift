@@ -1,8 +1,7 @@
-// 
+//
 //  FizzBuzzApp.swift
 //  FizzBuzz
 //
-    
 
 import SwiftUI
 
@@ -10,7 +9,7 @@ import SwiftUI
 struct FizzBuzzApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
