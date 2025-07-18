@@ -9,7 +9,7 @@ struct MainView: View {
     var body: some View {
         TabView {
             Tab("Fizz Buzz", systemImage: "bubbles.and.sparkles") {
-                Text("FizzBuzzView")
+                FizzBuzzView()
             }
 
             Tab("Code", systemImage: "note.text") {
@@ -19,6 +19,21 @@ struct MainView: View {
             Tab("About", systemImage: "bubble") {
                 AboutView()
             }
+        }
+        .onAppear {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithTransparentBackground()
+
+            let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+            let blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.alpha = 0.5
+
+            // Convert to UIColor
+            appearance.backgroundColor = UIColor.clear
+            appearance.backgroundEffect = blurEffect
+
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
         }
     }
 }
