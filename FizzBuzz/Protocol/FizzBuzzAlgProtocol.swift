@@ -76,6 +76,7 @@ extension FizzBuzzAlgProtocol {
     var equalityComparator: String { "==" }
     var moduloOperator: String { "%" }
     var code: String {
+//        var indentCount = 0
         var completeCode = ""
         // Creating description comment
         completeCode += self.commentCode("FizzBuzz algorythm implemententation in \(self.programmingLanguage)\n")
@@ -86,22 +87,29 @@ extension FizzBuzzAlgProtocol {
         }
         
         var code = ""
+        code += self.maxConstDeclaration + "\n"
         
         // Creating logic for the algorythm with if statements
+//        indentCount += 1
         var logic = ""
         let isDivisibleByThreeCondition = "i \(self.moduloOperator) 3 \(self.equalityComparator) 0"
         let isDivisibleByFiveCondition = "i \(self.moduloOperator) 5 \(self.equalityComparator) 0"
         let isDivisibleByFiveConditionAndThree = "\(isDivisibleByFiveCondition) \(self.logicalAndOperator) \(isDivisibleByThreeCondition)"
         
-        logic += self.ifStatement(isDivisibleByFiveConditionAndThree, self.printStatement("FizzBuzz"))
-        logic += self.elseIfStatement(isDivisibleByThreeCondition, self.printStatement("Fizz"))
-        logic += self.elseIfStatement(isDivisibleByFiveCondition, self.printStatement("Buzz"))
-        logic += self.elseStatement(self.printIntStatement("i"))
+        logic += self.ifStatement(isDivisibleByFiveConditionAndThree, self.printStatement("FizzBuzz").indented())
+        logic += self.elseIfStatement(isDivisibleByThreeCondition, self.printStatement("Fizz").indented())
+        logic += self.elseIfStatement(isDivisibleByFiveCondition, self.printStatement("Buzz").indented())
+        logic += self.elseStatement(self.printIntStatement("i").indented())
+        
         
         // Embedding if statements with a loop
-        code = loopWrapper(logic + "\n")
+        code += loopWrapper(logic.indented() + "\n")
         
         // Embedding loop with boilerplate code
+        // Don't indent additionally if code doesn't have boilerplate
+        if code != boilerPlateWrapper(code) {
+            code = code.indented()
+        }
         code = self.boilerPlateWrapper(code)
         
         completeCode += code

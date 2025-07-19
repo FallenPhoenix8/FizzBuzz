@@ -1,9 +1,8 @@
-// 
+//
 //  PythonFizzBuzzAlgModel.swift
 //  FizzBuzz
 //
     
-
 import Foundation
 
 struct PythonFizzBuzzAlgModel: FizzBuzzAlgProtocol {
@@ -13,7 +12,7 @@ struct PythonFizzBuzzAlgModel: FizzBuzzAlgProtocol {
         var result = "\nfor i in range(1, MAX + 1):\n"
         for line in code.split(separator: "\n") {
             if line.count > 0 {
-                result += "\t\(line)\n"
+                result += "\(line)\n"
             }
         }
         return result
@@ -28,15 +27,15 @@ struct PythonFizzBuzzAlgModel: FizzBuzzAlgProtocol {
     }
     
     var ifStatement: (String, String) -> String = { condition, code in
-        "\nif \(condition):\n\t\(code)"
+        "\nif \(condition):\n\(code)"
     }
     
     var elseIfStatement: (String, String) -> String = { condition, code in
-        "\nelif \(condition):\n\t\(code)"
+        "\nelif \(condition):\n\(code)"
     }
     
     var elseStatement: (String) -> String = { code in
-        "\nelse:\n\t\(code)"
+        "\nelse:\n\(code)"
     }
     
     var imports: [String] = []
