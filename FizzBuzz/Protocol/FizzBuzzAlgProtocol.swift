@@ -101,18 +101,18 @@ extension FizzBuzzAlgProtocol {
         logic += self.elseIfStatement(isDivisibleByFiveCondition, self.printStatement("Buzz").indented())
         logic += self.elseStatement(self.printIntStatement("i").indented())
         
-        
         // Embedding if statements with a loop
         code += loopWrapper(logic.indented() + "\n")
         
         // Embedding loop with boilerplate code
         // Don't indent additionally if code doesn't have boilerplate
-        if code != boilerPlateWrapper(code) {
+        if code != self.boilerPlateWrapper(code) {
             code = code.indented()
         }
         code = self.boilerPlateWrapper(code)
         
         completeCode += code
+        completeCode += "\n"
         
         return completeCode
     }
