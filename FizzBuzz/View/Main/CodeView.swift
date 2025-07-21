@@ -36,6 +36,7 @@ struct CodeView: View {
                                 )
                             })
                         }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                         
                 }
             }

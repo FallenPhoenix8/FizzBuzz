@@ -42,6 +42,11 @@ struct CppFizzBuzzAlgModel: FizzBuzzAlgProtocol {
     var logicalAndOperator: String = "&&"
     
     var boilerPlateWrapper: (String) -> String = { code in
-        "int main() {\n\(code.indented())\n\("return 0;".indented())\n}"
+        """
+        int main() {
+        \(code)
+        \("return 0;".indented())
+        }
+        """
     }
 }
