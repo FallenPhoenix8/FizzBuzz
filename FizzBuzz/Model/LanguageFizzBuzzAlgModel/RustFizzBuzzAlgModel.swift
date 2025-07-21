@@ -1,9 +1,8 @@
-// 
+//
 //  RustFizzBuzzAlgModel.swift
 //  FizzBuzz
 //
     
-
 import Foundation
 
 struct RustFizzBuzzAlgModel: FizzBuzzAlgProtocol {
@@ -11,12 +10,12 @@ struct RustFizzBuzzAlgModel: FizzBuzzAlgProtocol {
     
     var imports: [String] = []
     
-    var commentCode: (String) -> String = { "// \($0)\n"}
+    var commentCode: (String) -> String = { "// \($0)\n" }
     
     var maxConstDeclaration: String = "let max: u32 = 100;"
     
     var loopWrapper: (String) -> String = { code in
-        "for i in 1..max {\n\(code.indented())\n}\n"
+        "for i in 1..max + 1 {\n\(code.indented())\n}\n"
     }
     
     var printStatement: (String) -> String = { "println!(\"\($0)\");" }
@@ -32,7 +31,7 @@ struct RustFizzBuzzAlgModel: FizzBuzzAlgProtocol {
     }
     
     var elseStatement: (String) -> String = { code in
-            "else {\n\(code.indented())\n}"
+        "else {\n\(code.indented())\n}"
     }
     
     var logicalAndOperator: String = "&&"
