@@ -13,7 +13,7 @@ struct MainView: View {
             }
 
             Tab("Code", systemImage: "note.text") {
-                Text("CodeView")
+                CodeCreatorView(algorithmVM: FizzBuzzAlgViewModel())
             }
 
             Tab("About", systemImage: "bubble") {

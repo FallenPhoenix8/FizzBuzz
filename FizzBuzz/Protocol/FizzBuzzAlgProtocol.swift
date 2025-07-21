@@ -79,7 +79,7 @@ extension FizzBuzzAlgProtocol {
 //        var indentCount = 0
         var completeCode = ""
         // Creating description comment
-        completeCode += self.commentCode("FizzBuzz algorythm implemententation in \(self.programmingLanguage)\n")
+        completeCode += self.commentCode("FizzBuzz algorythm implemententation in \(self.programmingLanguage)\(versionNumber != nil ? "with implementation version: \(versionNumber!)" : "")\n")
         
         // Creating imports at the top
         for importItem in self.imports {
