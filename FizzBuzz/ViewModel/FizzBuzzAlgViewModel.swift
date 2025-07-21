@@ -5,7 +5,8 @@
 
 import Foundation
 
-struct FizzBuzzAlgViewModel {
+@Observable
+class FizzBuzzAlgViewModel {
     struct Algorithm: Identifiable {
         let id: UUID
         let programmingLanguage: String
@@ -24,11 +25,14 @@ struct FizzBuzzAlgViewModel {
             self.programmingLanguage = algorithm.programmingLanguage
             self.code = algorithm.code
             self.versionNumber = algorithm.versionNumber
-            
         }
     }
 
     let algorithms: [Algorithm] = [
         .init(from: PythonFizzBuzzAlgModel()),
+        .init(from: SwiftFizzBuzzAlgModel()),
+        .init(from: JavaFizzBuzzAlgModel()),
+        .init(from: RustFizzBuzzAlgModel()),
+        .init(from: CppFizzBuzzAlgModel())
     ]
 }

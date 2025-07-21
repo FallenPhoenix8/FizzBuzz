@@ -14,6 +14,6 @@ struct CodeView: View {
 }
 
 #Preview {
-    let alg = PythonFizzBuzzAlgModel().code
+    let alg = SwiftFizzBuzzAlgModel().code
     CodeView(algorithm: alg)
 }
